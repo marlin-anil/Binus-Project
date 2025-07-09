@@ -1,4 +1,8 @@
 [rhel]
-10.100.12.53 ansible_user=root
+10.100.12.53 
+10.100.36.42
+
+[rhel:vars]
+ansible_user=marlina
 
 
