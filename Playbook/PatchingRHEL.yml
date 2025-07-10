@@ -1,0 +1,26 @@
+---
+- name: Patching rhel
+  hosts: rhel
+  become: true
+  tasks:
+    - name: Ensure dnf-utils is installed
+      package:
+        name: dnf-utils
+        state: present
+      when: ansible_distribution_major_version == '9'
+
+    - name: update all package
+      yum:
+        name: '*'
+        state: latest
+
+    - name: reboot system if Kernel updates
+      command: needs-restarting -r
+      register: kernel_update
+      failed_when: kernel_update.rc > 1
+      changed_when: kernel_update.rc == 1
+      ignore_errors: true
+
+    - name: reboot if required
+      reboot:
+      when: kernel_update.rc == 1
