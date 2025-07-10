@@ -1,0 +1,7 @@
+---
+- name: shutdown
+  hosts: windows
+  gather_facts: no
+  tasks:
+    - name: powershell shutdown
+      win_shell: stop-computer -force -confirm:$false
