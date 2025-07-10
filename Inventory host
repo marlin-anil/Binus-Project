@@ -1,0 +1,11 @@
+[windows]
+10.100.13.80
+
+[windows:vars]
+ansible_user=.\Client
+ansible_password=iv4n.1r4
+ansible_connection=winrm
+ansible_winrm_cert_validation=ignore
+ansible_winrm_scheme=http
+ansible_winrm_port=5985
+ansible_winrm_transport=credssp
