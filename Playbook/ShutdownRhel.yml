@@ -4,5 +4,5 @@
   become: true
   tasks:
     - name: shutdown
-      command: poweroff
-      ignore_errors: true
+      command: shutdown
+      
