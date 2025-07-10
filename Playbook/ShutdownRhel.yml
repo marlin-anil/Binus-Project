@@ -1,0 +1,8 @@
+---
+- name: shutdown rhel
+  hosts: rhel
+  become: true
+  tasks:
+    - name: shutdown
+      command: poweroff
+      ignore_errors: true
