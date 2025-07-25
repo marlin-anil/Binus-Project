@@ -1,7 +1,6 @@
 [windows]
 10.100.13.85
-10.100.13.80
-10.100.13.75
+10.100.36.95
 
 [windows:vars]
 ansible_connection=winrm
